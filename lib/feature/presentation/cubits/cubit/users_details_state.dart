@@ -18,11 +18,15 @@ class UsersDetailsLoading extends UsersDetailsState {
 }
 
 class UsersDetailsLoaded extends UsersDetailsState {
+  final UserModel userModel;
+  UsersDetailsLoaded({required this.userModel});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [userModel];
 }
 
 class UsersDetailsFailure extends UsersDetailsState {
+  final String errorMsg;
+  UsersDetailsFailure({required this.errorMsg});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [errorMsg];
 }
