@@ -17,13 +17,16 @@ class ApiRemoteDataSourceImpl implements ApiRemoteDataSource {
       final url = Uri.parse("$baseUrl/api/users?page=2");
       final response = await http.get(url, headers: headers);
       if (response.statusCode == 200) {
+        print("response ${response.body}");
         final resBody = jsonDecode(response.body);
         return UserModel.fromJson(resBody);
       } else {
-        throw ServerException(response.toString());
+        print("response error ${response.statusCode} ${response.toString()}");
+        throw ServerException("${response.statusCode} ${response.toString()}");
       }
     } catch (e) {
-      print(e);
+      print("catch error$e");
+
       throw ServerException(e.toString());
     }
   }
