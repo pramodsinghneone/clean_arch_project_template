@@ -21,20 +21,8 @@ class BaseClient {
     return baseURL;
   }
 
-  static Map<String, String> getHeaders(ENVIRONMENT environment) {
-    switch (environment) {
-      case ENVIRONMENT.dev:
-        headers = {'Content-Type': 'application/json'};
-        break;
-      case ENVIRONMENT.staging:
-        headers = {'Content-Type': 'application/json'};
-        break;
-      case ENVIRONMENT.production:
-        headers = {'Content-Type': 'application/json'};
-        break;
-      default:
-        headers = {'Content-Type': 'application/json'};
-    }
+  static Map<String, String> getHeaders() {
+    headers = {'Content-Type': 'application/json'};
     return headers;
   }
 }

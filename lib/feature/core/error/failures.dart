@@ -5,6 +5,15 @@ abstract class Failure extends Equatable {
 }
 
 class ServerFailure extends Failure {
+  String failureType;
+  ServerFailure({required this.failureType});
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [failureType];
+}
+
+class NetworkFailure extends Failure {
+  String failureType;
+  NetworkFailure({required this.failureType});
+  @override
+  List<Object?> get props => [failureType];
 }

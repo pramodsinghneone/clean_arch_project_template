@@ -13,10 +13,10 @@ class ApiRepositoryImpl implements ApiRepository {
     try {
       final usersList = await apiRemoteDataSource.getUserList();
       return Right(usersList);
-    } on ServerException {
-      return Left(ServerFailure());
-    } catch (_) {
-      return Left(ServerFailure());
+    } on ServerException catch (e) {
+      return Left(ServerFailure(failureType: e.toString()));
+    } catch (e) {
+      return Left(ServerFailure(failureType: e.toString()));
     }
   }
 }
